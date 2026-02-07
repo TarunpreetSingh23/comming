@@ -1,113 +1,89 @@
+"use client";
+
 import Image from "next/image";
+import { Sparkles, Clock, ShieldCheck } from "lucide-react";
+import { motion } from "framer-motion";
 
-export default function Home() {
+export default function ComingSoon() {
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between p-24">
-      <div className="z-10 max-w-5xl w-full items-center justify-between font-mono text-sm lg:flex">
-        <p className="fixed left-0 top-0 flex w-full justify-center border-b border-gray-300 bg-gradient-to-b from-zinc-200 pb-6 pt-8 backdrop-blur-2xl dark:border-neutral-800 dark:bg-zinc-800/30 dark:from-inherit lg:static lg:w-auto  lg:rounded-xl lg:border lg:bg-gray-200 lg:p-4 lg:dark:bg-zinc-800/30">
-          Get started by editing&nbsp;
-          <code className="font-mono font-bold">app/page.js</code>
-        </p>
-        <div className="fixed bottom-0 left-0 flex h-48 w-full items-end justify-center bg-gradient-to-t from-white via-white dark:from-black dark:via-black lg:static lg:h-auto lg:w-auto lg:bg-none">
-          <a
-            className="pointer-events-none flex place-items-center gap-2 p-8 lg:pointer-events-auto lg:p-0"
-            href="https://vercel.com?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            By{" "}
-            <Image
-              src="/vercel.svg"
-              alt="Vercel Logo"
-              className="dark:invert"
-              width={100}
-              height={24}
-              priority
-            />
-          </a>
+    <div className="min-h-screen bg-[#F5F7F2] flex flex-col items-center justify-center px-6 text-center font-sans relative overflow-hidden">
+
+      {/* Soft Ambient Background */}
+      <div className="absolute -top-32 -left-32 w-96 h-96 bg-[#8A9A5B]/20 blur-[120px] rounded-full" />
+      <div className="absolute bottom-0 right-0 w-80 h-80 bg-[#3A4D39]/20 blur-[120px] rounded-full" />
+
+      {/* Main Card */}
+      <motion.div
+        initial={{ opacity: 0, y: 24 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.7, ease: "easeOut" }}
+        className="relative z-10 max-w-md w-full bg-white rounded-[3rem] p-10 shadow-[0_30px_80px_rgba(58,77,57,0.15)] border border-[#E0E5D2]"
+      >
+        {/* Logo */}
+        {/* <Image
+          src="/images/wLogo.png"
+          alt="Sparky"
+          width={140}
+          height={40}
+          className="mx-auto mb-8 object-contain"
+        /> */}
+
+        {/* Tag */}
+        <div className="inline-flex items-center gap-2 bg-[#F5F7F2] px-4 py-2 rounded-full mb-6">
+          <Sparkles size={16} className="text-[#8A9A5B]" />
+          <span className="text-[11px] font-black uppercase tracking-[0.25em] text-[#3A4D39]">
+            Premium Home Services
+          </span>
         </div>
-      </div>
 
-      <div className="relative flex place-items-center before:absolute before:h-[300px] before:w-full sm:before:w-[480px] before:-translate-x-1/2 before:rounded-full before:bg-gradient-radial before:from-white before:to-transparent before:blur-2xl before:content-[''] after:absolute after:-z-20 after:h-[180px] after:w-full sm:after:w-[240px] after:translate-x-1/3 after:bg-gradient-conic after:from-sky-200 after:via-blue-200 after:blur-2xl after:content-[''] before:dark:bg-gradient-to-br before:dark:from-transparent before:dark:to-blue-700 before:dark:opacity-10 after:dark:from-sky-900 after:dark:via-[#0141ff] after:dark:opacity-40 before:lg:h-[360px] z-[-1]">
-        <Image
-          className="relative dark:drop-shadow-[0_0_0.3rem_#ffffff70] dark:invert"
-          src="/next.svg"
-          alt="Next.js Logo"
-          width={180}
-          height={37}
-          priority
-        />
-      </div>
+        {/* Headline */}
+        <h1 className="text-[34px] font-extrabold tracking-tight text-[#1A2421] leading-tight mb-4">
+          Something <br />
+          <span className="text-[#3A4D39] italic">Beautiful</span> is Coming
+        </h1>
 
-      <div className="mb-32 grid text-center lg:max-w-5xl lg:w-full lg:mb-0 lg:grid-cols-4 lg:text-left">
-        <a
-          href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Docs{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
+        {/* Subtext */}
+        <p className="text-[#6B7A63] text-[15px] font-medium leading-relaxed mb-8">
+          Salon-quality beauty and trusted home services — delivered by
+          verified professionals, right to your doorstep.
+        </p>
+
+        {/* Feature Highlights */}
+        <div className="space-y-4 mb-10 text-left">
+          <div className="flex items-center gap-3">
+            <div className="w-10 h-10 rounded-2xl bg-[#F5F7F2] flex items-center justify-center">
+              <ShieldCheck size={20} className="text-[#3A4D39]" />
+            </div>
+            <span className="text-[14px] font-bold text-[#3A4D39]">
+              Verified & Trained Experts
             </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Find in-depth information about Next.js features and API.
-          </p>
-        </a>
+          </div>
 
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800 hover:dark:bg-opacity-30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Learn{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
+          <div className="flex items-center gap-3">
+            <div className="w-10 h-10 rounded-2xl bg-[#F5F7F2] flex items-center justify-center">
+              <Clock size={20} className="text-[#3A4D39]" />
+            </div>
+            <span className="text-[14px] font-bold text-[#3A4D39]">
+              Fast, Reliable, On-Time Service
             </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Learn about Next.js in an interactive course with&nbsp;quizzes!
-          </p>
-        </a>
+          </div>
+        </div>
 
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Templates{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Explore starter templates for Next.js.
+        {/* Coming Soon Badge */}
+        <div className="bg-[#3A4D39] text-white py-4 rounded-[1.75rem] shadow-lg">
+          <p className="text-[12px] font-black uppercase tracking-[0.3em]">
+            Launching Soon
           </p>
-        </a>
+          <p className="text-[10px] text-white/70 mt-1 tracking-widest">
+            Starting with Beauty & Home Care
+          </p>
+        </div>
+      </motion.div>
 
-        <a
-          href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Deploy{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50 text-balance`}>
-            Instantly deploy your Next.js site to a shareable URL with Vercel.
-          </p>
-        </a>
-      </div>
-    </main>
+      {/* Footer */}
+      <p className="mt-10 text-[11px] font-semibold text-[#6B7A63] uppercase tracking-[0.2em] relative z-10">
+        © {new Date().getFullYear()} Sparky • Crafted with Care
+      </p>
+    </div>
   );
 }
