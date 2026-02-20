@@ -1,89 +1,73 @@
 "use client";
 
-import Image from "next/image";
-import { Sparkles, Clock, ShieldCheck } from "lucide-react";
 import { motion } from "framer-motion";
+import { Sparkles, ShieldCheck, Clock } from "lucide-react";
 
 export default function ComingSoon() {
   return (
-    <div className="min-h-screen bg-[#F5F7F2] flex flex-col items-center justify-center px-6 text-center font-sans relative overflow-hidden">
+    <div className="relative min-h-screen flex items-center justify-center bg-gradient-to-br from-[#0f2027] via-[#203a43] to-[#2c5364] overflow-hidden text-white font-[Poppins]">
 
-      {/* Soft Ambient Background */}
-      <div className="absolute -top-32 -left-32 w-96 h-96 bg-[#8A9A5B]/20 blur-[120px] rounded-full" />
-      <div className="absolute bottom-0 right-0 w-80 h-80 bg-[#3A4D39]/20 blur-[120px] rounded-full" />
+      {/* Animated Gradient Blobs */}
+      <div className="absolute w-[500px] h-[500px] bg-purple-500/30 blur-[160px] rounded-full top-[-100px] left-[-100px] animate-pulse" />
+      <div className="absolute w-[400px] h-[400px] bg-pink-500/30 blur-[140px] rounded-full bottom-[-100px] right-[-100px] animate-pulse" />
 
-      {/* Main Card */}
+      {/* Floating Sparkles */}
+      <Sparkles className="absolute top-20 left-20 text-white/20 animate-bounce" size={40} />
+      <Sparkles className="absolute bottom-32 right-32 text-white/20 animate-pulse" size={28} />
+
+      {/* Glass Card */}
       <motion.div
-        initial={{ opacity: 0, y: 24 }}
+        initial={{ opacity: 0, y: 40 }}
         animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.7, ease: "easeOut" }}
-        className="relative z-10 max-w-md w-full bg-white rounded-[3rem] p-10 shadow-[0_30px_80px_rgba(58,77,57,0.15)] border border-[#E0E5D2]"
+        transition={{ duration: 0.8 }}
+        className="relative backdrop-blur-xl bg-white/10 border border-white/20 shadow-2xl rounded-[40px] p-12 max-w-lg w-full text-center"
       >
-        {/* Logo */}
-        {/* <Image
-          src="/images/wLogo.png"
-          alt="Sparky"
-          width={140}
-          height={40}
-          className="mx-auto mb-8 object-contain"
-        /> */}
-
-        {/* Tag */}
-        <div className="inline-flex items-center gap-2 bg-[#F5F7F2] px-4 py-2 rounded-full mb-6">
-          <Sparkles size={16} className="text-[#8A9A5B]" />
-          <span className="text-[11px] font-black uppercase tracking-[0.25em] text-[#3A4D39]">
-            Premium Home Services
-          </span>
-        </div>
+        {/* Brand */}
+        <h2 className="text-sm tracking-[0.4em] uppercase text-white/70 mb-6">
+          Premium Beauty & Home Services
+        </h2>
 
         {/* Headline */}
-        <h1 className="text-[34px] font-extrabold tracking-tight text-[#1A2421] leading-tight mb-4">
-          Something <br />
-          <span className="text-[#3A4D39] italic">Beautiful</span> is Coming
+        <h1 className="text-5xl font-extrabold leading-tight tracking-tight mb-6">
+          The Future of
+          <span className="block bg-gradient-to-r from-pink-400 to-purple-400 bg-clip-text text-transparent italic">
+            At-Home Luxury
+          </span>
         </h1>
 
         {/* Subtext */}
-        <p className="text-[#6B7A63] text-[15px] font-medium leading-relaxed mb-8">
-          Salon-quality beauty and trusted home services — delivered by
-          verified professionals, right to your doorstep.
+        <p className="text-white/70 text-sm leading-relaxed mb-10">
+          Salon-quality beauty and trusted home care —
+          delivered by elite professionals at your doorstep.
+          Seamless. Safe. Stunning.
         </p>
 
-        {/* Feature Highlights */}
-        <div className="space-y-4 mb-10 text-left">
-          <div className="flex items-center gap-3">
-            <div className="w-10 h-10 rounded-2xl bg-[#F5F7F2] flex items-center justify-center">
-              <ShieldCheck size={20} className="text-[#3A4D39]" />
-            </div>
-            <span className="text-[14px] font-bold text-[#3A4D39]">
-              Verified & Trained Experts
-            </span>
+        {/* Features */}
+        <div className="flex justify-center gap-6 mb-10">
+          <div className="flex flex-col items-center text-xs">
+            <ShieldCheck className="mb-2 text-green-400" />
+            Verified Experts
           </div>
 
-          <div className="flex items-center gap-3">
-            <div className="w-10 h-10 rounded-2xl bg-[#F5F7F2] flex items-center justify-center">
-              <Clock size={20} className="text-[#3A4D39]" />
-            </div>
-            <span className="text-[14px] font-bold text-[#3A4D39]">
-              Fast, Reliable, On-Time Service
-            </span>
+          <div className="flex flex-col items-center text-xs">
+            <Clock className="mb-2 text-blue-400" />
+            On-Time Service
           </div>
         </div>
 
-        {/* Coming Soon Badge */}
-        <div className="bg-[#3A4D39] text-white py-4 rounded-[1.75rem] shadow-lg">
-          <p className="text-[12px] font-black uppercase tracking-[0.3em]">
+        {/* Launch Button */}
+        <div className="relative group">
+          <div className="absolute -inset-1 bg-gradient-to-r from-pink-500 to-purple-500 rounded-full blur opacity-70 group-hover:opacity-100 transition duration-300" />
+          <button className="relative px-10 py-3 bg-black rounded-full text-sm tracking-widest uppercase font-semibold">
             Launching Soon
-          </p>
-          <p className="text-[10px] text-white/70 mt-1 tracking-widest">
-            Starting with Beauty & Home Care
-          </p>
+          </button>
         </div>
       </motion.div>
 
       {/* Footer */}
-      <p className="mt-10 text-[11px] font-semibold text-[#6B7A63] uppercase tracking-[0.2em] relative z-10">
-        © {new Date().getFullYear()} Sparky • Crafted with Care
-      </p>
+      <div className="absolute bottom-6 text-xs text-white/50 tracking-widest">
+        © {new Date().getFullYear()} Sparky — Redefining Home Services
+      </div>
     </div>
   );
 }
